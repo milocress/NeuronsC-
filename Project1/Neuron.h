@@ -3,7 +3,10 @@
 class Neuron
 {
 private:
-	int test;
+	double activation;
 public:
-	Neuron();
+	int test;
+	virtual double evaluate() = 0;
+	virtual void connect() = 0;
+	virtual void learn() = 0;
 };

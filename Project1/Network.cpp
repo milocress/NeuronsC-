@@ -1,15 +1,27 @@
 #include "Network.h"
 
-Network::Network(int size)
+Network::Network(\
+	int inSize, \
+	int outSize, \
+	int hiddenSize,
+	int connectionsPerNeuron)
 {
-	nodeArray = new Neuron[size + 1];
-	for (int i = 0; i < size; i++)
-	{
-		nodeArray[i] = Neuron();
-	}
+	m_inSize = inSize;
+	m_outSize = outSize;
+	m_hiddenSize = hiddenSize;
+	m_connectionsPerNeuron = connectionsPerNeuron;
+	inNodeArray = new InputNeuron[inSize];
+	outNodeArray = new OutputNeuron[outSize];
+	hiddenNodeArray = new HiddenNeuron[inSize];
+}
+
+Neuron& Network::operator[](int i)
+{
 }
 
 Network::~Network()
 {
-	delete[] nodeArray;
+	delete[] inNodeArray;
+	delete[] outNodeArray;
+	delete[] hiddenNodeArray;
 }

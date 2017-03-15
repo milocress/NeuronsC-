@@ -4,7 +4,6 @@
 int main() 
 {
 	std::cout << "Hello, World!";
-	Network brain(2);
-	std::cout << "Yay!";
+	Network brain();
 	return 0;
 }
