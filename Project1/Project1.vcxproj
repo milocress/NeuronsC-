@@ -110,12 +110,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="LearningNeuron.cpp" />
     <ClCompile Include="Network.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HiddenNeuron.h" />
     <ClInclude Include="InputNeuron.h" />
+    <ClInclude Include="LearningNeuron.h" />
     <ClInclude Include="Network.h" />
     <ClInclude Include="Neuron.h" />
     <ClInclude Include="OutputNeuron.h" />

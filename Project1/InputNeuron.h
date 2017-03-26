@@ -2,6 +2,9 @@
 #include "Neuron.h"
 class InputNeuron : Neuron
 {
-	double evaluate();
-
+private:
+	
+public:
+	double getActivation() { return activation; }
+	void setActivation(double a) { activation = a; }
 };

@@ -2,6 +2,7 @@
 #include "InputNeuron.h"
 #include "OutputNeuron.h"
 #include "HiddenNeuron.h"
+#include <math.h>
 
 class Network
 {
@@ -27,9 +28,24 @@ private:
 	InputNeuron * inNodeArray;
 	OutputNeuron * outNodeArray;
 	HiddenNeuron * hiddenNodeArray;
-	~Network();
 	int m_inSize, m_outSize, m_hiddenSize, m_connectionsPerNeuron;
+	double m_performance; // a fitness measure of the network
 public:
+	static double sigmoid(double x) { return 1 / (1 + exp(-x)); }
+	int getInSize() { return m_inSize; }	
+	int getOutSize() { return m_outSize; }
+	int getHiddenSize() { return m_hiddenSize; }
+	double getPerformance() { return m_performance; }
+	void setPerformance(double performance) { m_performance = performance; }
+	int * connect(int low, int high);
+	static void swap(int *a, int *b)
+	{
+		int *c = new int;
+		*c = *a;
+		*a = *b;
+		*b = *c;
+	}
+	~Network();
 	/**
 		I'm not exactly sure what to call this network
 		architecture, but it represents a more biologically
@@ -68,5 +84,7 @@ public:
 		int outSize, \
 		int hiddenSize, \
 		int connectionsPerNeuron);
-	Neuron& operator[](int i);
+	double operator[](int i);
+	void setInput(double * in);
+	double* getOutput();
 };

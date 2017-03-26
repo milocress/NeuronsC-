@@ -1,12 +1,12 @@
 #pragma once
+#include "Network.h"
 
 class Neuron
 {
-private:
+protected:
 	double activation;
+	Network* m_n;
+
 public:
-	int test;
-	virtual double evaluate() = 0;
-	virtual void connect() = 0;
-	virtual void learn() = 0;
+	virtual double getActivation() = 0;
 };
